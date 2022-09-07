@@ -66,6 +66,12 @@ public:
 
 	} 
 
+	void Swap(int i, int j) override {
+		T tmp = data[i];
+		data[i] = data[j];
+		data[j] = tmp;
+	}
+
 	void Resize(int newsize) {
 		assert(newsize >= 0);
 		T* newData = new T[newsize];

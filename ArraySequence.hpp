@@ -34,6 +34,10 @@ public:
         }
     }
 
+    void Swap(int i, int j) override {
+        return data->Swap(int i, int j);
+    }
+
     T GetFirst() override{
         return this->Get(0);
     }

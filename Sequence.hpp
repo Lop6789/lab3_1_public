@@ -14,6 +14,7 @@ public:
     virtual Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0;
 
     virtual int GetLength() = 0;
+    virtual void Swap() = 0;
 
     virtual void Append(T item) = 0;
     virtual void Prepend(T item) = 0;
