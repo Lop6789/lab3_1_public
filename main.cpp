@@ -1,10 +1,10 @@
 #include <iostream>
+#include "ArraySequence.hpp"
+
 
 using namespace std;
 
 int main(){
-
-    cout << "This is my first lab in 3rd sem!" << endl;
-
+    cout << "Hello" <<endl;
     return 0;
 }
