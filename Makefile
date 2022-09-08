@@ -1,10 +1,10 @@
 CC = g++
-SOURCE = $(wildcard *.cpp)
-OBJ = $(patsubst %.cpp, %.o, $(SOURCE))
+PREF_HEAD = ./Headers/
+PREF_SRC = ./Src/
+SOURCE = $(wildcard $(PREF_SRC)*.cpp)
+OBJ = $(patsubst $(PREF_SRC)%.cpp, %.o, $(SOURCE))
 
 all:
-	#$(CC) -c $(SOURCE)
-	#$(CC) -o lab1 $(OBJ)
-	#rm *.o
-
-	$(CC) -o lab1 $(SOURCE)
+	$(CC) -c $(SOURCE)
+	$(CC) -o lab1 $(OBJ)
+	rm *.o
