@@ -10,6 +10,9 @@ class ArraySequence : public Sequence{
         int length;
     
     public:
+
+        ArraySequence()
+
         ArraySequence(int size){
             data = new T[size];
         }
@@ -26,6 +29,11 @@ class ArraySequence : public Sequence{
             for (int i=0; i<length; i++){
                 data[i] = arrseq[i];
             }
+        }
+
+        ~ArraySequence(){
+            delete[] data;
+            length = 0;
         }
 
         T operator[](int const index){
