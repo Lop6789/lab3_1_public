@@ -1,13 +1,15 @@
 #include <iostream>
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/BubbleSort.hpp"
+#include "../Headers/ShellSort.hpp"
 using namespace std;
 
-    int cmp (int a, int b){
-        if (a>b) return 1;
-        if (a==b) return 0;
-        else return -1;
-    }
+int cmp (int a, int b){
+    if (a > b) return 1;
+    if (a == b) return 0;
+    else return -1;
+}
+
 int main(int argc, char* argv[]){
     /*
     cout << argc << endl;
@@ -19,7 +21,8 @@ int main(int argc, char* argv[]){
 
     int arr[8] = {1, 9, 8, 3, 4, 1, 34, 4};
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
-    ISort<int>* sorter = new BubbleSort<int>();
+    //ISort<int>* sorter = new BubbleSort<int>();
+    ISort<int>* sorter = new ShellSort<int>();
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
 
@@ -35,6 +38,8 @@ int main(int argc, char* argv[]){
                 ptr->print();
                 cout << "After Sort: " << endl;
                 sorter->Sort(ptr, &cmp);
+                ptr->print();
+                cout << "Operator" << endl;
                 break;
             }
             case 2:{
