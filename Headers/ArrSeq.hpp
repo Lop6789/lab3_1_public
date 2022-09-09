@@ -97,10 +97,10 @@ class ArraySequence : public Sequence{
             int newLength = length+1;
             Resize(newLength);
             T buff;
-            int diff = newLength - index - 1;
+            int mvqty = newLength - index - 1;
 
-            for (int i = 0; i < diff; i++) {
-                buff = Get(newLength - i - 2);
+            for (int i = 0; i < mvqty; i++) {
+                buff = data[newLength - i - 2];
                 Set(newLength - i - 1, buff);
             }
             Set(index, item);
@@ -116,6 +116,7 @@ class ArraySequence : public Sequence{
             cout<< "}"<<endl;
         }
 
-        Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0;
-        Sequence<T>* Concat(Sequence<T>* list) = 0;
+        Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0; //
+        Sequence<T>* GetSubsequence() = 0; //
+        Sequence<T>* Concat(Sequence<T>* list) = 0;//
 };
