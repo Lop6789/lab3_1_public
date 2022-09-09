@@ -3,18 +3,21 @@
 #include <cassert>
 #include <iostream>
 
+using namespace std;
+
 template <class T>
-class ArraySequence : public Sequence{
+class ArraySequence : public Sequence <T>{
     private:
         T* data;
         int length;
     
     public:
 
-        ArraySequence()
+        ArraySequence();
 
         ArraySequence(int size){
             data = new T[size];
+            length = size;
         }
 
         ArraySequence(T* items, int size){
@@ -22,6 +25,7 @@ class ArraySequence : public Sequence{
             for (int i = 0; i < size; i++){
                 data[i] = items[i];
             }
+            length = size;
         }
         //copy
         ArraySequence(ArraySequence<T>& arrseq){
@@ -29,6 +33,7 @@ class ArraySequence : public Sequence{
             for (int i=0; i<length; i++){
                 data[i] = arrseq[i];
             }
+        length = arrseq.length;
         }
 
         ~ArraySequence(){
@@ -57,6 +62,7 @@ class ArraySequence : public Sequence{
         
         void Set(int index, T value) override {
             data[index] = value;
+            length++;
         }
 
         int GetLength() override {
@@ -116,7 +122,8 @@ class ArraySequence : public Sequence{
             cout<< "}"<<endl;
         }
 
-        Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0; //
-        Sequence<T>* GetSubsequence() = 0; //
-        Sequence<T>* Concat(Sequence<T>* list) = 0;//
+        //Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0; //
+        //Sequence<T>* GetSubsequence() = 0; //
+        //Sequence<T>* Concat(Sequence<T>* list) = 0;//
+        
 };
