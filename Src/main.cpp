@@ -12,9 +12,9 @@ int main(int argc, char* argv[]){
     }
     */
 
-    int arr[8] = {1, 9, 8, 3, 4, 1, 34, 4};
-    Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
-    
+    //int arr[8] = {1, 9, 8, 3, 4, 1, 34, 4};
+    //Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
+
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
 

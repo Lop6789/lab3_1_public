@@ -62,7 +62,6 @@ class ArraySequence : public Sequence <T>{
         
         void Set(int index, T value) override {
             data[index] = value;
-            length++;
         }
 
         int GetLength() override {
@@ -85,14 +84,14 @@ class ArraySequence : public Sequence <T>{
                 newData[i] = data[i];
             }
 
-		    delete[] data;
+		    if (data) delete[] data;
             data = newData;
             length = newsize;
         }
 
         void Append(T item) override {
             Resize(length+1);
-            Set(length+1, item);
+            Set(length-1, item);
         }
 
         void Prepend(T item) override {
