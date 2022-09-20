@@ -3,14 +3,18 @@
 
 template <class T>
 class QuickSort : public ISort<T> {
+    private:
+        void Qs(Sequence<T>* seq, int l, int r, int (*cmp)(T,T)){
+            int size = l-r+1;
+            if (size <= 1) return;
+            if (size == 2) {
+                if (cmp(seq->Get(l), seq->Get(r)) > 0){
+                    seq->Swap(l , r);
+                    return;
+                }
+            }
 
-    public: 
-        Sequence<T>* Sort(Sequence<T>* seq, int (*cmp)(T,T)){
-            size = seq->GetLength();
-            if (size <=1) return;
-
-            int l = 0, r = size -1, x = (l+r)/2
-            T piv = seq->Get(x);
+            T piv = seq->Get((l+r)/2);
 
             do{
                 while (cmp(seq->Get(l), piv) < 0) l++;
@@ -22,7 +26,14 @@ class QuickSort : public ISort<T> {
                     r--;
                 }
             } while (l <= r);
-            if (r>0) QuickSort(seq->GetSubsequence(), cmp);
-            
+            if (r>0) Qs(seq, 0, r+1, cmp);
+            if (l<size) Qs(seq, l, r, cmp);
         }
-};
+
+
+    public: 
+        Sequence<T>* Sort(Sequence<T>* seq, int (*cmp)(T,T)){
+            int l = 0, r = seq->GetLength() - 1; 
+        return seq;
+        }
+}; 

@@ -2,6 +2,7 @@
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/BubbleSort.hpp"
 #include "../Headers/ShellSort.hpp"
+#include "../Headers/QuickSort.hpp"
 using namespace std;
 
 // int cmp (int a, int b){
@@ -27,7 +28,8 @@ int main(int argc, char* argv[]){
     int arr[8] = {1, 9, 8, 3, 4, 1, 34, 4};
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
     //ISort<int>* sorter = new BubbleSort<int>();
-    ISort<int>* sorter = new ShellSort<int>();
+    //ISort<int>* sorter = new ShellSort<int>();
+    ISort<int>* sorter = new QuickSort<int>();
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
 
