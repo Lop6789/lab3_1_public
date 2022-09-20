@@ -33,11 +33,11 @@ int main(int argc, char* argv[]){
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
 
-    int res = 0;
+    int res = 0, choose = 0;
     while (res != -1){
         cout << "Choose: ";
-        cin >> res;
-        switch (res){
+        cin >> choose;
+        switch (choose){
             case 1:{
                 int test1 = ptr->GetFirst();
                 int test2 = ptr->GetLength();
@@ -56,8 +56,13 @@ int main(int argc, char* argv[]){
                 break;
             }
 
-        default:
-            break;
+            case 0: {
+                res =-1;
+                break;
+            }
+
+            default:
+                break;
         }
     }
 

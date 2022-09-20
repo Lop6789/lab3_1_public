@@ -7,13 +7,13 @@ class QuickSort : public ISort<T> {
         void Qs(Sequence<T>* seq, int l, int r, int (*cmp)(T,T)){
             int size = l-r+1;
             if (size <= 1) return;
-            if (size == 2) {
+            /*if (size == 2) {
                 if (cmp(seq->Get(l), seq->Get(r)) > 0){
                     seq->Swap(l , r);
                     return;
                 }
             }
-
+            */
             T piv = seq->Get((l+r)/2);
 
             do{
@@ -27,7 +27,7 @@ class QuickSort : public ISort<T> {
                 }
             } while (l <= r);
             if (r>0) Qs(seq, 0, r+1, cmp);
-            if (l<size) Qs(seq, l, r, cmp);
+            if (l<size) Qs(seq, l, size-l, cmp);
         }
 
 
