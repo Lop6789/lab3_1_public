@@ -4,14 +4,19 @@
 #include "../Headers/ShellSort.hpp"
 using namespace std;
 
+// int cmp (int a, int b){
+//     if (a > b) return 1;
+//     if (a == b) return 0;
+//     else return -1;
+// }
+
 int cmp (int a, int b){
-    if (a > b) return 1;
-    if (a == b) return 0;
-    else return -1;
+    return a - b;
 }
 
 int main(int argc, char* argv[]){
-    /*
+    //Print array:
+    /* 
     cout << argc << endl;
     
     for (int i = 0; i < argc; i++){
@@ -43,6 +48,9 @@ int main(int argc, char* argv[]){
                 break;
             }
             case 2:{
+                ptr->print();
+                ptr = ptr->GetSubsequence(0,ptr->GetLength());
+                ptr->print();
                 break;
             }
 

@@ -13,7 +13,10 @@ class ArraySequence : public Sequence <T>{
     
     public:
 
-        ArraySequence();
+        ArraySequence(){
+            //data = NULL;
+            //length = 0;
+        };
 
         ArraySequence(int size){
             data = new T[size];
@@ -121,8 +124,16 @@ class ArraySequence : public Sequence <T>{
             cout<< "}"<<endl;
         }
 
-        //Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0; //
-        //Sequence<T>* GetSubsequence() = 0; //
+        Sequence<T>* GetSubsequence(int startIndex, int endIndex) {
+            ArraySequence<T>* buff = new ArraySequence<T>();
+            int diff = endIndex - startIndex;
+            buff->Resize(diff);
+            for (int i = 0; i < diff; i++) {
+                buff->Set(i, Get(startIndex+i));
+            }
+            return buff;
+        }
+
         //Sequence<T>* Concat(Sequence<T>* list) = 0;//
         
 };
