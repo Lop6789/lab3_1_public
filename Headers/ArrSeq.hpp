@@ -14,8 +14,8 @@ class ArraySequence : public Sequence <T>{
     public:
 
         ArraySequence(){
-            //data = NULL;
-            //length = 0;
+            data = NULL;
+            length = 0;
         };
 
         ArraySequence(int size){
@@ -43,6 +43,7 @@ class ArraySequence : public Sequence <T>{
             delete[] data;
             length = 0;
         }
+
 
         T operator[](int const index){
             //assert

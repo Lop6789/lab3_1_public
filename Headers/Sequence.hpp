@@ -5,6 +5,7 @@ class Sequence{
 private:
 public:
    
+    virtual ~Sequence(){}
 
     virtual T GetFirst() = 0;
     virtual T GetLast() = 0;

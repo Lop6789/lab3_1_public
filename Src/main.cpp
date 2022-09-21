@@ -26,19 +26,23 @@ int main(int argc, char* argv[]){
     */
 
     int arr[8] = {1, 9, 8, 3, 4, 1, 34, 4};
-    Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
+    //int* ptr = nullptr;
+    //Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
+    Sequence<int>* ptr = new ArraySequence<int>(3);
+    //ArraySequence<int>* ptr1 = (ArraySequence<int>*)ptr;
     //ISort<int>* sorter = new BubbleSort<int>();
     //ISort<int>* sorter = new ShellSort<int>();
-    ISort<int>* sorter = new QuickSort<int>();
+    //ISort<int>* sorter = new QuickSort<int>();
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
 
-    int res = 0, choose = 0;
-    while (res != -1){
+    int flag = 1;
+    int res = 0;
+    while (!flag){
         cout << "Choose: ";
-        cin >> choose;
-        switch (choose){
-            case 1:{
+        cin >> res;
+        switch (res){
+            case 1:{/*
                 int test1 = ptr->GetFirst();
                 int test2 = ptr->GetLength();
                 cout <<"First: "<<test1 << endl  << "Second: "  << test2 << endl;
@@ -47,17 +51,20 @@ int main(int argc, char* argv[]){
                 sorter->Sort(ptr, &cmp);
                 ptr->print();
                 cout << "Operator" << endl;
+                */
                 break;
             }
             case 2:{
+                /*
                 ptr->print();
                 ptr = ptr->GetSubsequence(0,ptr->GetLength());
                 ptr->print();
                 break;
+                */
             }
 
             case 0: {
-                res =-1;
+                flag = 1;
                 break;
             }
 
@@ -66,7 +73,8 @@ int main(int argc, char* argv[]){
             }
         }
     }
-
-
+    delete ptr;
+    //delete ptr1;
+    //delete sorter; 
     return 0;
 }
