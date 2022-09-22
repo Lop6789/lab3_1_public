@@ -3,6 +3,7 @@
 #include "../Headers/BubbleSort.hpp"
 #include "../Headers/ShellSort.hpp"
 #include "../Headers/QuickSort.hpp"
+
 using namespace std;
 
 // int cmp (int a, int b){
@@ -12,6 +13,10 @@ using namespace std;
 // }
 
 int cmp (int a, int b){
+    return a - b;
+}
+
+int cmp (float a, float b){
     return a - b;
 }
 
@@ -27,22 +32,22 @@ int main(int argc, char* argv[]){
 
     int arr[8] = {1, 9, 8, 3, 4, 1, 34, 4};
     //int* ptr = nullptr;
-    //Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
-    Sequence<int>* ptr = new ArraySequence<int>(3);
+    Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
+    // Sequence<int>* ptr = new ArraySequence<int>(3);
     //ArraySequence<int>* ptr1 = (ArraySequence<int>*)ptr;
     //ISort<int>* sorter = new BubbleSort<int>();
     //ISort<int>* sorter = new ShellSort<int>();
-    //ISort<int>* sorter = new QuickSort<int>();
+    ISort<int>* sorter = new QuickSort<int>();
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
 
-    int flag = 1;
+    int flag = 0;
     int res = 0;
     while (!flag){
         cout << "Choose: ";
         cin >> res;
         switch (res){
-            case 1:{/*
+            case 1:{
                 int test1 = ptr->GetFirst();
                 int test2 = ptr->GetLength();
                 cout <<"First: "<<test1 << endl  << "Second: "  << test2 << endl;
@@ -51,7 +56,7 @@ int main(int argc, char* argv[]){
                 sorter->Sort(ptr, &cmp);
                 ptr->print();
                 cout << "Operator" << endl;
-                */
+
                 break;
             }
             case 2:{
