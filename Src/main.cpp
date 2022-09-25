@@ -16,9 +16,9 @@ int cmp (int a, int b){
     return a - b;
 }
 
-int cmp (float a, float b){
-    return a - b;
-}
+// int cmp (float a, float b){
+//     return a - b;
+// }
 
 int main(int argc, char* argv[]){
     //Print array:
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]){
     }
     */
 
-    int arr[8] = {1, 9, 8, 3, 4, 1, 34, 4};
+    int arr[8] = {1, 9, 8, 3, 4, 1, 40, 4};
     //int* ptr = nullptr;
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
     // Sequence<int>* ptr = new ArraySequence<int>(3);
@@ -58,7 +58,7 @@ int main(int argc, char* argv[]){
                 cout << "Operator" << endl;
 
                 break;
-            }
+            }   
             case 2:{
                 /*
                 ptr->print();
@@ -80,6 +80,6 @@ int main(int argc, char* argv[]){
     }
     delete ptr;
     //delete ptr1;
-    //delete sorter; 
+    delete sorter; 
     return 0;
 }
