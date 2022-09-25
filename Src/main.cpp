@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     */
 
     int arr[8] = {1, 9, 8, 3, 4, 1, 40, 4};
-    //int* ptr = nullptr;
+    
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
     // Sequence<int>* ptr = new ArraySequence<int>(3);
     //ArraySequence<int>* ptr1 = (ArraySequence<int>*)ptr;
