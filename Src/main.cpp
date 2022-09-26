@@ -20,7 +20,11 @@ int cmp (int a, int b){
 //     return a - b;
 // }
 
+
+
 int main(int argc, char* argv[]){
+    srand(time(NULL));
+   
     //Print array:
     /* 
     cout << argc << endl;
@@ -66,6 +70,23 @@ int main(int argc, char* argv[]){
                 ptr->print();
                 break;
                 */
+            }
+            
+            case 3:{
+                int qty = 0;
+                cin >> qty;
+                int* randarr = new int(qty);
+                for (int i=0; i<qty; i++){
+                    randarr[i] = rand()%1000;
+                }
+                Sequence<int>* ptr1 = new ArraySequence<int>(randarr, qty);
+                ptr1->print();
+                sorter->Sort(ptr1, cmp);
+                ptr1->print();
+                
+                
+
+                break;
             }
 
             case 0: {
