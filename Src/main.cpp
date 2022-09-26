@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
     }
     */
 
-    int arr[8] = {1, 9, 8, 3, 4, 1, 40, 4};
+    int arr[] = {1, 9, 8, 3, 4, 1, 40, 4};
     
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
     // Sequence<int>* ptr = new ArraySequence<int>(3);
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]){
     ISort<int>* sorter = new QuickSort<int>();
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
-
+    Sequence<int>* ptr1 = nullptr;
     int flag = 0;
     int res = 0;
     while (!flag){
@@ -75,9 +75,11 @@ int main(int argc, char* argv[]){
             case 3:{
                 int qty = 0;
                 cin >> qty;
-                int* randarr = new int(qty);
+                int* randarr = new int[qty];
+                //randarr[0] = 1;
+                //randarr[qty-1] = 9;
                 for (int i=0; i<qty; i++){
-                    randarr[i] = rand()%1000;
+                    randarr[i] = rand()%1000000;
                 }
                 Sequence<int>* ptr1 = new ArraySequence<int>(randarr, qty);
                 ptr1->print();
@@ -85,7 +87,7 @@ int main(int argc, char* argv[]){
                 ptr1->print();
                 
                 
-
+                delete[] randarr;
                 break;
             }
 
@@ -100,7 +102,7 @@ int main(int argc, char* argv[]){
         }
     }
     delete ptr;
-    //delete ptr1;
+    delete ptr1;
     delete sorter; 
     return 0;
 }
