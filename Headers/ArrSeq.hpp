@@ -14,7 +14,7 @@ class ArraySequence : public Sequence <T>{
     public:
 
         ArraySequence(){
-            data = NULL;
+            data = nullptr;
             length = 0;
         };
 

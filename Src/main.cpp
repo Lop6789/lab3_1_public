@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>
+#include <stdio.h>
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/BubbleSort.hpp"
 #include "../Headers/ShellSort.hpp"
@@ -86,6 +88,26 @@ int main(int argc, char* argv[]){
                 
                 
                 delete[] randarr;
+                break;
+            }
+
+            case 4: {
+                cout << "Enter qty" << endl;
+                int qty = 0;
+                cin >> qty;
+                int* randarr = new int[qty];
+                for (int i=0; i<qty; i++){
+                    randarr[i] = rand()%1000000;
+                }
+                Sequence<int>* ptr2 = new ArraySequence<int>(randarr, qty);
+                //ptr2->print();
+                clock_t start = clock();
+                Sequence<int>* out2 = sorter->Sort(ptr2, cmp);
+                clock_t end = clock();
+                double time = ((double)(end - start))/CLOCKS_PER_SEC;
+                //out2->print();
+                cout << time << endl;
+                printf("Time: %.10lf\n", time);
                 break;
             }
 
