@@ -39,9 +39,9 @@ int main(int argc, char* argv[]){
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
     // Sequence<int>* ptr = new ArraySequence<int>(3);
     //ArraySequence<int>* ptr1 = (ArraySequence<int>*)ptr;
-    //ISort<int>* sorter = new BubbleSort<int>();
-    //ISort<int>* sorter = new ShellSort<int>();
-    ISort<int>* sorter = new QuickSort<int>();
+    ISort<int>* sorter = new BubbleSort<int>();
+    // ISort<int>* sorter = new ShellSort<int>();
+    // ISort<int>* sorter = new QuickSort<int>();
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
     Sequence<int>* ptr1 = nullptr;
@@ -57,8 +57,8 @@ int main(int argc, char* argv[]){
                 cout <<"First: "<<test1 << endl  << "Second: "  << test2 << endl;
                 ptr->print();
                 cout << "After Sort: " << endl;
-                sorter->Sort(ptr, &cmp);
-                ptr->print();
+                Sequence<int>* output = sorter->Sort(ptr, &cmp);
+                output->print();
                 cout << "Operator" << endl;
 
                 break;
@@ -76,15 +76,13 @@ int main(int argc, char* argv[]){
                 int qty = 0;
                 cin >> qty;
                 int* randarr = new int[qty];
-                //randarr[0] = 1;
-                //randarr[qty-1] = 9;
                 for (int i=0; i<qty; i++){
                     randarr[i] = rand()%1000000;
                 }
                 Sequence<int>* ptr1 = new ArraySequence<int>(randarr, qty);
                 ptr1->print();
-                sorter->Sort(ptr1, cmp);
-                ptr1->print();
+                Sequence<int>* out = sorter->Sort(ptr1, cmp);
+                out->print();
                 
                 
                 delete[] randarr;
