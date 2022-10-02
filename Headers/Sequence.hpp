@@ -22,7 +22,7 @@ public:
     virtual void Prepend(T item) = 0;
     virtual void InsertAt (T item, int index) = 0;
     virtual void print() = 0;
-    virtual void Resize(int) = 0;
+    //virtual void Resize(int) = 0;
     virtual T operator[](int const index) = 0;
     virtual Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0;
 

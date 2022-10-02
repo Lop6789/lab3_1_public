@@ -79,7 +79,7 @@ class ArraySequence : public Sequence <T>{
         }
         
 
-        void Resize(int newsize) override {
+        void Resize(int newsize) {
             T* newData = new T[newsize];
             int tmpsize = 0;
             tmpsize = (newsize > length)? length:newsize;
