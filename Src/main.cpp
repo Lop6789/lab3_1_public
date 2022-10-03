@@ -3,9 +3,10 @@
 #include <stdio.h>
 #include "../Headers/cmd.hpp"
 #include "../Headers/ArrSeq.hpp"
-#include "../Headers/BubbleSort.hpp"
-#include "../Headers/ShellSort.hpp"
-#include "../Headers/QuickSort.hpp"
+#include "../Headers/SortHeaders.hpp"
+// #include "../Headers/BubbleSort.hpp"
+// #include "../Headers/ShellSort.hpp"
+// #include "../Headers/QuickSort.hpp"
 
 using namespace std;
 
