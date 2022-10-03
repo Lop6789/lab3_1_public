@@ -30,8 +30,9 @@ int main(int argc, char* argv[]){
     int flag = 0;
     if (argc<=1) flag = 0;
     else{
-        // Cmd(argc, argv);
-        Cmd(argc, argv, nullptr);
+        int start = 0, stop = 0, step = 0;
+        Parse(argc, argv, start, stop, step);
+        cout << start << " " << stop << " " << step << endl;
     }
     srand(time(NULL));
     //Print array:

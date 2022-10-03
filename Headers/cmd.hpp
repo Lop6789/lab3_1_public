@@ -2,4 +2,4 @@
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
 void CheckSrc(int& argc, char** argv);
-void Cmd (int& argc, char** argv, ArraySequence<ISort<int>*>*);
+ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop, int& step);
