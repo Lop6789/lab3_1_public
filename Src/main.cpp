@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <stdio.h>
+#include "../Headers/cmd.hpp"
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/BubbleSort.hpp"
 #include "../Headers/ShellSort.hpp"
@@ -24,11 +25,16 @@ int cmp (int a, int b){
 
 
 
-int main(int argc, char* argv[]){
+int main(int argc, char** argv){
+    int flag = -1;
+    if (argc>1) flag = 0;
+    else{
+        // Cmd(argc, argv);
+        CheckSrc();
+    }
     srand(time(NULL));
-   
     //Print array:
-    /* 
+    /*
     cout << argc << endl;
     
     for (int i = 0; i < argc; i++){
@@ -47,7 +53,6 @@ int main(int argc, char* argv[]){
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
     Sequence<int>* ptr1 = nullptr;
-    int flag = 0;
     int res = 0;
     while (!flag){
         cout << "Choose: ";
