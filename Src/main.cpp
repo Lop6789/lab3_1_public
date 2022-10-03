@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     if (argc<=1) flag = 0;
     else{
         // Cmd(argc, argv);
-        CheckSrc(argc, argv);
+        Cmd(argc, argv, nullptr);
     }
     srand(time(NULL));
     //Print array:
