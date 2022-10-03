@@ -1,3 +1,3 @@
 #pragma once
-void CheckSrc();
-void Cmd (int& argc, char** atgv); 
+void CheckSrc(int& argc, char** argv);
+void Cmd (int& argc, char** argv);

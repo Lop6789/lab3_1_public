@@ -135,6 +135,12 @@ class ArraySequence : public Sequence <T>{
             return buff;
         }
 
+        int IndexOf(T item){
+            for (int i = 0 ; i<length; i++){
+                if (data[i] == item) return i;
+            }
+            return -1;
+        }
         //Sequence<T>* Concat(Sequence<T>* list) = 0;//
         
 };

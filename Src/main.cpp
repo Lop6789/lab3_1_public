@@ -25,22 +25,22 @@ int cmp (int a, int b){
 
 
 
-int main(int argc, char** argv){
-    int flag = -1;
-    if (argc>1) flag = 0;
+int main(int argc, char* argv[]){
+    int flag = 0;
+    if (argc<=1) flag = 0;
     else{
         // Cmd(argc, argv);
-        CheckSrc();
+        CheckSrc(argc, argv);
     }
     srand(time(NULL));
     //Print array:
-    /*
+
     cout << argc << endl;
     
     for (int i = 0; i < argc; i++){
 	    cout << argv[i] << endl;
     }
-    */
+
 
     int arr[] = {1, 9, 8, 3, 4, 1, 40, 4};
     
