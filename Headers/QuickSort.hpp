@@ -4,6 +4,8 @@
 template <class T>
 class QuickSort : public ISort<T> {
     private:
+        string name = "qs";
+
         void Qs(Sequence<T>* seq, int l, int r, int (*cmp)(T,T)){
             if (r-l<=0) return;
 
@@ -28,6 +30,10 @@ class QuickSort : public ISort<T> {
             Qs(seq, 0, seq->GetLength()-1, cmp);
             return seq;
         }
+
+    string GetName(){
+        return name;
+    }
 }; 
 
 // void Qs(Sequence<T>* seq, int i, int j, int (*cmp)(T,T)){

@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     if (argc<=1) flag = 0;
     else{
         int start = 0, stop = 0, step = 0;
-        Parse(argc, argv, start, stop, step);
+        Cmd(Parse(argc, argv, start, stop, step), start, stop, step, 1, cmp);
         cout << start << " " << stop << " " << step << endl;
     }
     srand(time(NULL));
@@ -107,7 +107,6 @@ int main(int argc, char* argv[]){
                     randarr[i] = rand()%1000000;
                 }
                 Sequence<int>* ptr2 = new ArraySequence<int>(randarr, qty);
-                //ptr2->print();
                 clock_t start = clock();
                 Sequence<int>* out2 = sorter->Sort(ptr2, cmp);
                 clock_t end = clock();

@@ -4,7 +4,7 @@
 template <class T>
 class ShellSort : public ISort<T> {
     private:
-
+        string name = "shs";
     public:
         void Ss(Sequence<T>* seq, int (*cmp)(T,T)){
             int gap, i, j, tmp;
@@ -26,7 +26,9 @@ class ShellSort : public ISort<T> {
             return seq;
         }
 
-
+    string GetName(){
+        return name;
+    }
 
 
 /*

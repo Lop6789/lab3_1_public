@@ -26,47 +26,88 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
     }
     fin.close();
 
+    start = 0, stop = 0, step = 0;
+
     for (int i = 0; i < argc; i++){
-        //cout << argv[i] << endl;
         int flag = 0;
-        start = 0, stop = 0, step = 0;
+
+        if (!strcmp(argv[i], "-q")) {
+            flag = 1;
+            i++;
+        }
         if ((sorts->IndexOf(argv[i]))!=-1){
             // cout << argv[i] << endl;
             // cout << "YES" << endl;
             //Create()
-            if (argv[i] == "-q ") {
-                flag = 1;
-                i++;
-            }
-            if (argv[i] == "-bs") {
+            if (!strcmp(argv[i], "bs")) {
                 sort1 = new BubbleSort<int>();
                 isorts->Append(sort1);
             }
-            if (argv[i] == "-qs") {
+            if (!strcmp(argv[i], "qs")) {
                 sort2 = new QuickSort<int>();
+                cout << "KAENDOUABDFUAEBF" << endl;
                 isorts->Append(sort2);
             }
-            if (argv[i] == "-shs") {
+            if (!strcmp(argv[i], "shs")) {
                 sort3 = new ShellSort<int>();
                 isorts->Append(sort3);
             }
-            if (flag == 1) {
-                start = atoi(argv[i++]);
-                stop = atoi(argv[i++]);
-                step = atoi (argv[i]);
-            }
-            //FILENAME
         }
 
+        if (flag == 1) {
+            start = atoi(argv[i++]);
+            stop = atoi(argv[i++]);
+            step = atoi (argv[i]);
+            // flag = 2;
+        }
+            //FILENAME
+
     }
+    
     return isorts;
 
 }
 
-//Time
-// void Cmd (int& argc, char** argv, ArraySequence<ISort<int>*>* sorts){
-//     sorts = CheckSrc(argc, argv);
-//     for (int i = 0; i<sorts->GetLength(); i++){
-//       srand(time(NULL))  
+// double Measure (ISort<int>* sorter, int qty, int flag){
+ 
+//     if (flag == 0) Sequence<int>* seq1 = new ArraySequence<int>();
+//     // else Sequence<int>* seq = new ListSequence<int>(randarr, qty);
+//     srand(time(NULL));
+//     for (int i = 0;, i<qty; i++){
+//         seq->Append(rand()%qty)
 //     }
+//     clock_t start = clock();
+//     Sequence<int>* out2 = sorter->Sort(ptr2, cmp);
+//     clock_t end = clock();
+//     double time = ((double)(end - start))/CLOCKS_PER_SEC;
 // }
+
+// Time
+void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int type, int (*cmp)(int, int)){
+    Sequence<int>* seq;
+    if (type == 1) seq = new ArraySequence<int>();
+    // else seq = new ListSequence();
+
+    ofstream out("result.csv");
+
+    srand(time(NULL));
+    double* res = new double[sorts->GetLength()];
+
+    for (int j = 0; j<sorts->GetLength(); j++){
+            out << sorts->Get(j)->GetName() << " ";
+
+    for (int j = start; j<stop; j+=step){
+        out << j << " ";
+        for (int i = 0; i<sorts->GetLength(); i++){
+            for (int k = 0; k<j; k++) seq->Append(rand()%j);
+            clock_t start = clock();
+            // Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
+            sorts->Get(i)->Sort(seq, cmp);
+            clock_t end = clock();
+            double time = ((double)(end - start))/CLOCKS_PER_SEC;
+            out << time << " ";
+            }
+        }
+    }
+}
+
