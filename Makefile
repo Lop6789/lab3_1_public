@@ -6,6 +6,6 @@ SOURCE = $(wildcard $(PREF_SRC)*.cpp)
 OBJ = $(patsubst $(PREF_SRC)%.cpp, %.o, $(SOURCE))
 
 all:
-	$(CC) -g -c $(SOURCE)
-	$(CC) -g -o lab1 $(OBJ)
+	$(CC) -c $(SOURCE)
+	$(CC) -o lab1 $(OBJ)
 	rm *.o

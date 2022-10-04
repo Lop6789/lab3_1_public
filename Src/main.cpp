@@ -31,7 +31,8 @@ int main(int argc, char* argv[]){
     if (argc<=1) flag = 0;
     else{
         int start = 0, stop = 0, step = 0;
-        Cmd(Parse(argc, argv, start, stop, step), start, stop, step, 1, cmp);
+        ArraySequence<ISort<int>*>* ptr = Parse(argc, argv, start, stop, step);
+        Cmd(ptr, start, stop, step, 1, cmp);
         cout << start << " " << stop << " " << step << endl;
     }
     srand(time(NULL));

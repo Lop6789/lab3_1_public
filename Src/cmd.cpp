@@ -93,9 +93,13 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     srand(time(NULL));
     double* res = new double[sorts->GetLength()];
 
-    for (int j = 0; j<sorts->GetLength(); j++){
-            out << sorts->Get(j)->GetName() << " ";
+    out << "Types : ";
 
+    for (int k = 0; k<sorts->GetLength(); k++){
+            out << sorts->Get(k)->GetName() << " ";
+    }
+    out << endl;
+    //out << start << stop << step << endl;
     for (int j = start; j<stop; j+=step){
         out << j << " ";
         for (int i = 0; i<sorts->GetLength(); i++){
@@ -106,8 +110,9 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
             clock_t end = clock();
             double time = ((double)(end - start))/CLOCKS_PER_SEC;
             out << time << " ";
-            }
         }
+        out << endl;
     }
 }
+
 
