@@ -10,12 +10,6 @@
 
 using namespace std;
 
-// int cmp (int a, int b){
-//     if (a > b) return 1;
-//     if (a == b) return 0;
-//     else return -1;
-// }
-
 int cmp (int a, int b){
     return a - b;
 }
@@ -33,17 +27,19 @@ int main(int argc, char* argv[]){
         int start = 0, stop = 0, step = 0;
         ArraySequence<ISort<int>*>* ptr = Parse(argc, argv, start, stop, step);
         Cmd(ptr, start, stop, step, 1, cmp);
-        cout << start << " " << stop << " " << step << endl;
+        //cout << start << " " << stop << " " << step << endl;
+        flag=1;
     }
+    
     srand(time(NULL));
     //Print array:
-
+    /*
     cout << argc << endl;
     
     for (int i = 0; i < argc; i++){
 	    cout << argv[i] << endl;
     }
-
+    */
 
     int arr[] = {1, 9, 8, 3, 4, 1, 40, 4};
     
@@ -77,12 +73,12 @@ int main(int argc, char* argv[]){
                 /*
                 ptr->print();
                 ptr = ptr->GetSubsequence(0,ptr->GetLength());
-                ptr->print();
+                ptr->print();*/
                 break;
-                */
             }
             
             case 3:{
+                cout << "Generating random array, enter qty" << endl;
                 int qty = 0;
                 cin >> qty;
                 int* randarr = new int[qty];
@@ -100,7 +96,7 @@ int main(int argc, char* argv[]){
             }
 
             case 4: {
-                cout << "Enter qty" << endl;
+                cout << "Enter qty to generate rangom array and sort" << endl;
                 int qty = 0;
                 cin >> qty;
                 int* randarr = new int[qty];

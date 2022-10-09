@@ -45,7 +45,6 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
             }
             if (!strcmp(argv[i], "qs")) {
                 sort2 = new QuickSort<int>();
-                cout << "KAENDOUABDFUAEBF" << endl;
                 isorts->Append(sort2);
             }
             if (!strcmp(argv[i], "shs")) {
@@ -93,7 +92,8 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     srand(time(NULL));
     double* res = new double[sorts->GetLength()];
 
-    out << "Types : ";
+    // out << "Types : ";
+    out << "qty ";
 
     for (int k = 0; k<sorts->GetLength(); k++){
             out << sorts->Get(k)->GetName() << " ";
