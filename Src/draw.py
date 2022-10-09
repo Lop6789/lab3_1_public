@@ -1,4 +1,3 @@
-from unicodedata import decimal
 import matplotlib.pyplot as plt
 import csv
 
