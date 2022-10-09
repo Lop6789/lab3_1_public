@@ -88,7 +88,6 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     if (type == 1) seq = new ArraySequence<int>();
     // else seq = new ListSequence();
 
-    ios_base::sync_with_stdio(false);
     ofstream out("result.csv");
 
     srand(time(NULL));
