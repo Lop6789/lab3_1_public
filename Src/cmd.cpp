@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <cstdlib>
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
 
@@ -83,10 +84,11 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
 
 // Time
 void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int type, int (*cmp)(int, int)){
-    Sequence<int>* seq;
+    Sequence<int>* seq = nullptr;
     if (type == 1) seq = new ArraySequence<int>();
     // else seq = new ListSequence();
 
+    ios_base::sync_with_stdio(false);
     ofstream out("result.csv");
 
     srand(time(NULL));
@@ -111,9 +113,14 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
             double time = ((double)(end - start))/CLOCKS_PER_SEC;
             out << time << " ";
             delete res;
+            start = 0; end = 0;
         }
         out << endl;
     }
+
+    system("cd Src && python3 draw.py");
+
+
 }
 
 

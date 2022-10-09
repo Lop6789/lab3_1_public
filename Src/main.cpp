@@ -4,21 +4,14 @@
 #include "../Headers/cmd.hpp"
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
-// #include "../Headers/BubbleSort.hpp"
-// #include "../Headers/ShellSort.hpp"
-// #include "../Headers/QuickSort.hpp"
 
 using namespace std;
+
+
 
 int cmp (int a, int b){
     return a - b;
 }
-
-// int cmp (float a, float b){
-//     return a - b;
-// }
-
-
 
 int main(int argc, char* argv[]){
     int flag = 0;
@@ -86,7 +79,7 @@ int main(int argc, char* argv[]){
                     randarr[i] = rand()%1000000;
                 }
                 Sequence<int>* ptr1 = new ArraySequence<int>(randarr, qty);
-                ptr1->print();
+                //ptr1->print();
                 Sequence<int>* out = sorter->Sort(ptr1, cmp);
                 out->print();
                 

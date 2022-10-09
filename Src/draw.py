@@ -10,14 +10,13 @@ with open ("../result.csv") as f:
     reader = csv.reader(f, delimiter=" ")
     legend = next(reader)[1:-1]
     #data = [row[:-1] for row in reader]
-    # for i in range(2):
     for row in reader:
         x.append(int(row[0]))
         y.append(list(map(float, row[1:-1])))
     # x = [float(row) for row in reader]
     # print(x)
     # print(y)
-    print(legend)
+    #print(legend)
     plt.plot(x, y)
     plt.title("Graph of sorts (dependence time from quantity of elements)")
     plt.grid()
@@ -25,8 +24,9 @@ with open ("../result.csv") as f:
     plt.ylabel("Time(N)")
     plt.legend(legend)
     plt.show()
-    # plt.plot(x,y, label='Loaded from file!')
-    # plt.ylabel('y')
+    # plt.savefig
+
+    
     
 
 
