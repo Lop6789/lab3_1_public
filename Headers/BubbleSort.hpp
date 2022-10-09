@@ -1,3 +1,4 @@
+#pragma once
 #include "ISort.hpp"
 //#include <iostream>
 
@@ -7,8 +8,9 @@ class BubbleSort : public ISort<T>{
         string name = "bs";
 
         void Bs(Sequence<T>* seq, int (*cmp)(T,T)){
-            for(int i = 0; i<seq->GetLength(); i++){
-                for (int j = 0; j<seq->GetLength(); j++){   
+            int size = seq->GetLength();
+            for(int i = 0; i<size; i++){
+                for (int j = 0; j<size; j++){   
                     if (cmp(seq->Get(i), seq->Get(j))<0) seq->Swap(i,j);
                 }
             }
