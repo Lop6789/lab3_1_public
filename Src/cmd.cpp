@@ -104,12 +104,13 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
         out << j << " ";
         for (int i = 0; i<sorts->GetLength(); i++){
             for (int k = 0; k<j; k++) seq->Append(rand()%j);
+            Sequence<int>* res = nullptr;
             clock_t start = clock();
-            // Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
-            sorts->Get(i)->Sort(seq, cmp);
+            res = sorts->Get(i)->Sort(seq, cmp);
             clock_t end = clock();
             double time = ((double)(end - start))/CLOCKS_PER_SEC;
             out << time << " ";
+            delete res;
         }
         out << endl;
     }

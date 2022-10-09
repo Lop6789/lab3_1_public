@@ -5,7 +5,7 @@ template <class T>
 class ShellSort : public ISort<T> {
     private:
         string name = "shs";
-    public:
+
         void Ss(Sequence<T>* seq, int (*cmp)(T,T)){
             int gap, i, j, tmp;
             int n = seq->GetLength();
@@ -20,15 +20,16 @@ class ShellSort : public ISort<T> {
             }
         }
 
-    Sequence<T>* Sort(Sequence<T>* origseq, int (*cmp)(T,T)) override {
-            Sequence<T>* seq = origseq->GetSubsequence(0, origseq->GetLength());
-            Ss(seq, cmp);
-            return seq;
-        }
+    public:
+        Sequence<T>* Sort(Sequence<T>* origseq, int (*cmp)(T,T)) override {
+                Sequence<T>* seq = origseq->GetSubsequence(0, origseq->GetLength());
+                Ss(seq, cmp);
+                return seq;
+            }
 
-    string GetName(){
-        return name;
-    }
+        string GetName(){
+            return name;
+        }
 
 
 /*

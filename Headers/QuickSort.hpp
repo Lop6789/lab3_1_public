@@ -31,9 +31,9 @@ class QuickSort : public ISort<T> {
             return seq;
         }
 
-    string GetName(){
-        return name;
-    }
+        string GetName(){
+            return name;
+        }
 }; 
 
 // void Qs(Sequence<T>* seq, int i, int j, int (*cmp)(T,T)){
