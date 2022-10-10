@@ -14,6 +14,7 @@ int cmp (int a, int b){
 }
 
 int main(int argc, char* argv[]){
+    
     int flag = 0;
     if (argc<=1) flag = 0;
     else{

@@ -1,5 +1,6 @@
 #pragma once
 #include "ISort.hpp"
+#include <cstring>
 //#include <iostream>
 
 template <class T>

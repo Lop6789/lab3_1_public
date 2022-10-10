@@ -16,17 +16,14 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
     ifstream fin(sorts_path);
 
     ArraySequence<string>* sorts = new ArraySequence<string>();
-    ISort<int>* sort1 = nullptr;
-    ISort<int>* sort2 = nullptr;
-    ISort<int>* sort3 = nullptr;
+   
     ArraySequence<ISort<int>*>* isorts = new ArraySequence<ISort<int>*>();
-    // ArraySequence<ISort>
+
     if(fin.is_open()) cout << "Success!" << endl;
     while (getline(fin, line)){
         sorts->Append(line);
     }
     fin.close();
-
     start = 0, stop = 0, step = 0;
 
     for (int i = 0; i < argc; i++){
@@ -41,16 +38,16 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
             // cout << "YES" << endl;
             //Create()
             if (!strcmp(argv[i], "bs")) {
-                sort1 = new BubbleSort<int>();
-                isorts->Append(sort1);
+                // sort1 = new BubbleSort<int>();
+                isorts->Append(new BubbleSort<int>());
             }
             if (!strcmp(argv[i], "qs")) {
-                sort2 = new QuickSort<int>();
-                isorts->Append(sort2);
+                // sort2 = new QuickSort<int>();
+                isorts->Append(new QuickSort<int>());
             }
             if (!strcmp(argv[i], "shs")) {
-                sort3 = new ShellSort<int>();
-                isorts->Append(sort3);
+                // sort3 = new ShellSort<int>();
+                isorts->Append(new ShellSort<int>());
             }
         }
 
@@ -96,8 +93,8 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     // out << "Types : ";
     out << "qty ";
 
-    for (int k = 0; k<sorts->GetLength(); k++){
-            out << sorts->Get(k)->GetName() << " ";
+    for (int l = 0; l<sorts->GetLength(); l++){
+            out << sorts->Get(l)->GetName() << " ";
     }
     out << endl;
     //out << start << stop << step << endl;

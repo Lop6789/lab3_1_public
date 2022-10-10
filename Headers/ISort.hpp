@@ -1,5 +1,9 @@
 #pragma once
 #include "Sequence.hpp"
+#include <string>
+
+using namespace std;
+
 template <class T>
 class ISort{
     
