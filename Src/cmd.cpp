@@ -88,7 +88,7 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     ofstream out("result.csv");
 
     srand(time(NULL));
-    double* res = new double[sorts->GetLength()];
+    //double* res = new double[sorts->GetLength()];
 
     // out << "Types : ";
     out << "qty ";

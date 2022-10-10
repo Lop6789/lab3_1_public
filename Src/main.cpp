@@ -7,8 +7,6 @@
 
 using namespace std;
 
-
-
 int cmp (int a, int b){
     return a - b;
 }
@@ -38,14 +36,14 @@ int main(int argc, char* argv[]){
     int arr[] = {1, 9, 8, 3, 4, 1, 40, 4};
     
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
+    ISort<int>* sorter = new BubbleSort<int>();
+
     // Sequence<int>* ptr = new ArraySequence<int>(3);
     //ArraySequence<int>* ptr1 = (ArraySequence<int>*)ptr;
-    ISort<int>* sorter = new BubbleSort<int>();
     // ISort<int>* sorter = new ShellSort<int>();
     // ISort<int>* sorter = new QuickSort<int>();
     //ArraySequence<int>* ptr = new ArraySequence<int>(0);
     //ptr->Append(1331);
-    Sequence<int>* ptr1 = nullptr;
     int res = 0;
     while (!flag){
         cout << "Choose: ";
@@ -60,6 +58,7 @@ int main(int argc, char* argv[]){
                 Sequence<int>* output = sorter->Sort(ptr, &cmp);
                 output->print();
                 cout << "Operator" << endl;
+                delete output;
 
                 break;
             }   
@@ -86,6 +85,8 @@ int main(int argc, char* argv[]){
                 
                 
                 delete[] randarr;
+                delete ptr1;
+                delete out;
                 break;
             }
 
@@ -105,6 +106,8 @@ int main(int argc, char* argv[]){
                 //out2->print();
                 cout << time << endl;
                 printf("Time: %.10lf\n", time);
+                delete[] randarr;
+                delete ptr2; delete out2;
                 break;
             }
 
@@ -119,7 +122,6 @@ int main(int argc, char* argv[]){
         }
     }
     delete ptr;
-    delete ptr1;
     delete sorter; 
     return 0;
 }
