@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstring>
 #include <cstdlib>
+#include <chrono>
 #include "../Headers/ArrSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
 
@@ -85,6 +86,8 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     if (type == 1) seq = new ArraySequence<int>();
     // else seq = new ListSequence();
 
+    clock_t from, to;
+
     ofstream out("result.csv");
 
     srand(time(NULL));
@@ -96,23 +99,30 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     for (int l = 0; l<sorts->GetLength(); l++){
             out << sorts->Get(l)->GetName() << " ";
     }
+
     out << endl;
-    //out << start << stop << step << endl;
+
+
     for (int j = start; j<stop; j+=step){
         out << j << " ";
         for (int i = 0; i<sorts->GetLength(); i++){
             for (int k = 0; k<j; k++) seq->Append(rand()%j);
-            Sequence<int>* res = nullptr;
-            clock_t start = clock();
-            res = sorts->Get(i)->Sort(seq, cmp);
-            clock_t end = clock();
-            double time = ((double)(end - start));
+
+            from = clock();
+            // auto from = std::chrono::high_resolution_clock::now();
+            Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
+            // auto to = std::chrono::high_resolution_clock::now();
+            // double time = std::chrono::duration_cast<std::chrono::microseconds>(to - from).count();
+            to = clock();
+            double time = ((double)(to - from)) / CLOCKS_PER_SEC;
+
             out << time << " ";
             delete res;
             // start = 0; end = 0;
         }
         out << endl;
     }
+    out.close();
 
     system("cd Src && python3 draw.py");
 
