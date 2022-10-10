@@ -25,6 +25,7 @@ public:
     //virtual void Resize(int) = 0;
     virtual T operator[](int const index) = 0;
     virtual Sequence<T>* GetSubsequence(int startIndex, int endIndex) = 0;
+    virtual Sequence<T>* Copy() = 0;
 
     //virtual Sequence<T>* Concat(Sequence<T>* list) = 0;
 

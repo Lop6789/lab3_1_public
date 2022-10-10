@@ -106,10 +106,10 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
             clock_t start = clock();
             res = sorts->Get(i)->Sort(seq, cmp);
             clock_t end = clock();
-            double time = ((double)(end - start))/CLOCKS_PER_SEC;
+            double time = ((double)(end - start));
             out << time << " ";
             delete res;
-            start = 0; end = 0;
+            // start = 0; end = 0;
         }
         out << endl;
     }

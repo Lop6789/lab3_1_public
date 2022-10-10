@@ -32,11 +32,12 @@ class ArraySequence : public Sequence <T>{
         }
         //copy
         ArraySequence(ArraySequence<T>& arrseq){
+            length = arrseq.length;
             data = new T[length];
             for (int i=0; i<length; i++){
                 data[i] = arrseq[i];
             }
-        length = arrseq.length;
+            
         }
 
         ~ArraySequence(){
@@ -134,6 +135,10 @@ class ArraySequence : public Sequence <T>{
             }
             return buff;
         }
+
+        Sequence<T>* Copy() override{
+            return (Sequence<T>*)(new ArraySequence<T>(*this));
+            }
 
         int IndexOf(T item){
             for (int i = 0 ; i<length; i++){
