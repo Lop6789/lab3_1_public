@@ -82,18 +82,16 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
 
 // Time
 void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int type, int (*cmp)(int, int)){
-    Sequence<int>* seq = nullptr;
-    if (type == 1) seq = new ArraySequence<int>();
+    // Sequence<int>* seq = nullptr;
+    // if (type == 1) seq = new ArraySequence<int>();
     // else seq = new ListSequence();
 
     clock_t from, to;
-
+    double restime;
     ofstream out("result.csv");
 
     srand(time(NULL));
-    //double* res = new double[sorts->GetLength()];
 
-    // out << "Types : ";
     out << "qty ";
 
     for (int l = 0; l<sorts->GetLength(); l++){
@@ -106,6 +104,7 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     for (int j = start; j<stop; j+=step){
         out << j << " ";
         for (int i = 0; i<sorts->GetLength(); i++){
+            ArraySequence<int>* seq = new ArraySequence<int>();
             for (int k = 0; k<j; k++) seq->Append(rand()%j);
 
             from = clock();
@@ -114,15 +113,18 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
             // auto to = std::chrono::high_resolution_clock::now();
             // double time = std::chrono::duration_cast<std::chrono::microseconds>(to - from).count();
             to = clock();
-            double time = ((double)(to - from)) / CLOCKS_PER_SEC;
+            restime = ((double)(to - from)) / CLOCKS_PER_SEC;
 
-            out << time << " ";
+            out << restime << " ";
+            restime = 0;
             delete res;
+            delete seq;
             // start = 0; end = 0;
         }
         out << endl;
     }
     out.close();
+    delete sorts;
 
     system("cd Src && python3 draw.py");
 
