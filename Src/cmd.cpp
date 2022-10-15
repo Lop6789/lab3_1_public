@@ -61,7 +61,7 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
             //FILENAME
 
     }
-    
+    delete sorts;
     return isorts;
 
 }
@@ -124,7 +124,8 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
         out << endl;
     }
     out.close();
-    delete sorts;
+    //for (int i = 0; i<sorts->GetLength(); delete sorts->Get(i), i++);
+    //delete sorts;
 
     system("cd Src && python3 draw.py");
 

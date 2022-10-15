@@ -20,6 +20,8 @@ int main(int argc, char* argv[]){
         ArraySequence<ISort<int>*>* ptr = Parse(argc, argv, start, stop, step);
         Cmd(ptr, start, stop, step, 1, cmp);
         //cout << start << " " << stop << " " << step << endl;
+        for (int i = 0; i<ptr->GetLength(); delete ptr->Get(i), i++);
+        delete ptr;
         flag=1;
     }
     
