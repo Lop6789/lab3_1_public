@@ -9,7 +9,7 @@ class BubbleSort : public ISort<T>{
         string name = "bs";
 
         void Bs(Sequence<T>* seq, int (*cmp)(T,T)){
-            int size = seq->GetLength()-2;
+            int size = seq->GetLength()-1;
             for(int i = 0; i<size; i++){
                 for (int j = 0; j<size - i; j++){   
                     if (cmp(seq->Get(j), seq->Get(j+1))>0) seq->Swap(j,j+1);

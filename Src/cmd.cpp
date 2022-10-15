@@ -66,19 +66,7 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
 
 }
 
-// double Measure (ISort<int>* sorter, int qty, int flag){
- 
-//     if (flag == 0) Sequence<int>* seq1 = new ArraySequence<int>();
-//     // else Sequence<int>* seq = new ListSequence<int>(randarr, qty);
-//     srand(time(NULL));
-//     for (int i = 0;, i<qty; i++){
-//         seq->Append(rand()%qty)
-//     }
-//     clock_t start = clock();
-//     Sequence<int>* out2 = sorter->Sort(ptr2, cmp);
-//     clock_t end = clock();
-//     double time = ((double)(end - start))/CLOCKS_PER_SEC;
-// }
+
 
 // Time
 void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int type, int (*cmp)(int, int)){
