@@ -42,6 +42,15 @@ class LinkedList {
             tail = ptr->prev;
         }
 
+        LinkedList(LinkedList<T>& list){
+            length = list.length;
+            head = new ListNode<T>(list.head->data);
+            
+            for (int i = 0; i<length; i++){
+
+            }
+        }
+
 
 
 
