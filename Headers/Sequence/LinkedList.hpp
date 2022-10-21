@@ -34,8 +34,8 @@ class LinkedList {
         LinkedList(T* items, int size){
             length = size;
             head = new ListNode<T>(items[0]);
-            ListNode<T>* ptr = head->next;    
-            for (int i = 1; i < size-1; i++){
+            ListNode<T>* ptr = head;    
+            for (int i = 1; i < size; i++){
                 ptr->next = new ListNode<T>(items[i]);
                 ptr = ptr->next;    
             }
