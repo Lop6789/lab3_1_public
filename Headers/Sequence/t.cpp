@@ -25,6 +25,9 @@ int main(){
 
     LinkedList<int>* ptr2 = new LinkedList<int>(randarr, qty);
     ptr2->print();
+    LinkedList<int>* ptr3 = new LinkedList<int>(*ptr2);
+    ptr3->print();
+    // cout << ptr2->GetLast() << ptr2->GetFirst() << endl;
     // LinkedList<int>* ptr2 = new LinkedList<int>();
     // ptr = ptr->GetSubsequence(0, 3);
     // ISort<int>* bs= new BubbleSort<int> ();
@@ -41,4 +44,5 @@ int main(){
     // delete qs;
     delete ptr2;
     delete ptr1;
+    delete ptr3;
 }
