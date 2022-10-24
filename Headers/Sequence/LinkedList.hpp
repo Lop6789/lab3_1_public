@@ -70,7 +70,6 @@ class LinkedList {
             }
         }
 
-
         T GetFirst(){
             return head->data;
         }
@@ -91,6 +90,35 @@ class LinkedList {
             return length;
         }
 
+        LinkedList<T>* GetSubList(int startIndex, int endIndex){
+            LinkedList<T>* res = new LinkedList<T>();
+            ListNode<T>* ptr_this = head;
+            
+            for (int i = 0; i < startIndex; i++) {
+                ptr_this = ptr_this->next;
+            }
+    
+            for (int i = startIndex; i < endIndex; i++){
+                res->Append(ptr_this->data);
+                ptr_this = ptr_this->next;
+            }
+            return res;
+        }
+
+
+        void Append(T item){
+            if (length == 0){
+                head = new ListNode<T>(item);
+                tail = head;
+                length++;
+            }
+            else{
+                tail->next = new ListNode<T>(item);
+                tail = tail->next;
+                length++;
+            }
+        }
+        
 
 
 
