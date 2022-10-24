@@ -29,10 +29,14 @@ int main(){
     ptr3->Append(0);
     ptr3->Append(5);
     LinkedList<int>* ptr4 = ptr3->GetSubList(0, 3);
+    ptr4->Prepend(13);
+    // cout << ptr4->GetFirst()<<endl;
     // LinkedList<int>* ptr4 = new LinkedList<int>();
     // ptr4->Append(7);
-
-    // ptr4->print();
+    // ptr->print();
+    ptr2->print();
+    ptr3->print();
+    ptr4->print();
     // cout << ptr2->GetLast() << ptr2->GetFirst() << endl;
     // LinkedList<int>* ptr2 = new LinkedList<int>();
     // ptr = ptr->GetSubsequence(0, 3);

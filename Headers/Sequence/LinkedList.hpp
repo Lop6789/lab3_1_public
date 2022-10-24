@@ -10,9 +10,15 @@ class ListNode {
     public:
         T data;
         ListNode<T>* next;
-        ListNode<T>* prev;
 
-    ListNode(T data){this->data = data;}
+    ListNode(T data){
+        this->data = data; 
+        next = nullptr;
+        }
+
+    ListNode(){
+        next = nullptr;
+    }
 };
 
 
@@ -34,7 +40,7 @@ class LinkedList {
         LinkedList(T* items, int size){
             length = size;
             head = new ListNode<T>(items[0]);
-            ListNode<T>* ptr = head;    
+            ListNode<T>* ptr = head;
             for (int i = 1; i < size; i++){
                 ptr->next = new ListNode<T>(items[i]);
                 ptr = ptr->next;    
@@ -61,7 +67,7 @@ class LinkedList {
         ~LinkedList(){
 
             ListNode<T>* ptr = head;
-            ListNode<T>* ptr_prev = nullptr;
+            ListNode<T>* ptr_prev;
 
             while (ptr) {
                 ptr_prev = ptr;
@@ -93,7 +99,7 @@ class LinkedList {
         LinkedList<T>* GetSubList(int startIndex, int endIndex){
             LinkedList<T>* res = new LinkedList<T>();
             ListNode<T>* ptr_this = head;
-            
+
             for (int i = 0; i < startIndex; i++) {
                 ptr_this = ptr_this->next;
             }
@@ -118,6 +124,20 @@ class LinkedList {
                 length++;
             }
         }
+
+        void Prepend(T item){
+            if (length == 0){
+                head = new ListNode<T>(item);
+                tail = head;
+                length++;
+            }
+            else{
+                ListNode<T>* ptr_new = head;
+                head = new ListNode<T>(item);
+                head->next = ptr_new;
+                length++;
+            }
+        }
         
 
 
@@ -125,10 +145,10 @@ class LinkedList {
         void print() {
             cout << "Length: " << length << endl;
             cout << "[ ";
-            ListNode<T>* buff = head;
+            ListNode<T>* ptr = head;
             for (int i = 0; i < length; i++) {
-                cout << buff->data << " ";
-                buff = buff->next;
+                cout << ptr->data << " ";
+                ptr = ptr->next;
             }
 
         cout << "]" << endl;
