@@ -21,12 +21,12 @@ int main(){
     Sequence<int>* ptr = new ArraySequence<int>(randarr, qty);
     // DynamicArray<int>* ptr = new DynamicArray<int>(randarr, qty);
     // Sequence<int>* ptr1 = new ArraySequence(*ptr);
-    Sequence<int>* ptr1 = ptr->GetSubsequence(0, 5);
+    // Sequence<int>* ptr1 = ptr->GetSubsequence(0, 5);
 
     LinkedList<int>* ptr2 = new LinkedList<int>(randarr, qty);
-    ptr2->print();
-    LinkedList<int>* ptr3 = new LinkedList<int>(*ptr2);
-    ptr3->print();
+    // ptr2->print();
+    // LinkedList<int>* ptr3 = new LinkedList<int>(*ptr2);
+    // ptr3->print();
     // cout << ptr2->GetLast() << ptr2->GetFirst() << endl;
     // LinkedList<int>* ptr2 = new LinkedList<int>();
     // ptr = ptr->GetSubsequence(0, 3);
@@ -43,6 +43,6 @@ int main(){
     // delete shs;
     // delete qs;
     delete ptr2;
-    delete ptr1;
-    delete ptr3;
+    // delete ptr1;
+    // delete ptr3;
 }

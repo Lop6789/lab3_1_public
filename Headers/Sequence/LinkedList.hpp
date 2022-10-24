@@ -58,6 +58,18 @@ class LinkedList {
         }
         
 
+        ~LinkedList(){
+
+            ListNode<T>* ptr = head;
+            ListNode<T>* ptr_prev = nullptr;
+
+            while (ptr) {
+                ptr_prev = ptr;
+                ptr = ptr->next;
+                delete ptr_prev;
+            }
+        }
+
 
         T GetFirst(){
             return head->data;
