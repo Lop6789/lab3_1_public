@@ -26,7 +26,7 @@ class QuickSort : public ISort<T> {
 
     public:
         Sequence<T>* Sort(Sequence<T>* origseq, int (*cmp)(T,T)){
-            Sequence<T>* seq = origseq->GetSubsequence(0, origseq->GetLength());
+            Sequence<T>* seq = origseq->Copy();
             Qs(seq, 0, seq->GetLength()-1, cmp);
             return seq;
         }

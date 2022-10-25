@@ -3,7 +3,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <chrono>
-#include "../Headers/ArrSeq.hpp"
+#include "../Headers/Sequence/ArrSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
 
 
@@ -36,7 +36,6 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
         }
         if ((sorts->IndexOf(argv[i]))!=-1){
             // cout << argv[i] << endl;
-            // cout << "YES" << endl;
             //Create()
             if (!strcmp(argv[i], "bs")) {
                 // sort1 = new BubbleSort<int>();
@@ -65,6 +64,10 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
     return isorts;
 
 }
+
+// Sequence<T>* RandSequence(int qty){
+
+// }
 
 
 
@@ -96,10 +99,9 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
             for (int k = 0; k<j; k++) seq->Append(rand()%j);
 
             from = clock();
-            // auto from = std::chrono::high_resolution_clock::now();
+            
             Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
-            // auto to = std::chrono::high_resolution_clock::now();
-            // double time = std::chrono::duration_cast<std::chrono::microseconds>(to - from).count();
+
             to = clock();
             restime = ((double)(to - from)) / CLOCKS_PER_SEC;
 
@@ -119,5 +121,10 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
 
 
 }
+
+
+            // auto from = std::chrono::high_resolution_clock::now();
+            // auto to = std::chrono::high_resolution_clock::now();
+            // double time = std::chrono::duration_cast<std::chrono::microseconds>(to - from).count();
 
 

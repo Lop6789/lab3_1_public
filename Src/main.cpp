@@ -2,7 +2,7 @@
 #include <ctime>
 #include <stdio.h>
 #include "../Headers/cmd.hpp"
-#include "../Headers/ArrSeq.hpp"
+#include "../Headers/Sequence/ArrSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
 
 using namespace std;

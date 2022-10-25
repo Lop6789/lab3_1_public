@@ -1,5 +1,5 @@
 #pragma once
-#include "Sequence.hpp"
+#include "Sequence/Sequence.hpp"
 #include <string>
 
 using namespace std;
