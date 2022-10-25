@@ -138,6 +138,36 @@ class LinkedList {
                 length++;
             }
         }
+
+        void InsertAt(T item, int index){
+            ListNode<T>* ptr;
+
+            for (int i  = 0; i < index; i++){
+                ptr = ptr->next;
+            }
+
+            ListNode<T>* ptr_next = ptr->next;
+            ptr->next = new ListNode<T>(item);
+            ptr->next->next = ptr_next;
+        }
+
+        void Set (T item, int index){
+            ListNode<T>* ptr = head;
+            for (int i = 0; i < length; i++){
+                ptr = ptr->next;
+            }
+            ptr->data = item;
+        }
+
+        int IndexOf(T item){
+            ListNode<T>* ptr = head;
+            for (int i = 0; i < length; i++){
+                if (ptr->data == item) return i;
+                ptr = ptr->next;
+            }
+                
+            return -1;
+        }
         
 
 
