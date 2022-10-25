@@ -34,7 +34,7 @@ int main()
     sorts->Append(Sort2);
     sorts->Append(Sort3);
 
-int start = 1000, stop = 1003, step = 1;
+int start = 10000, stop = 10003, step = 1;
 
 for (int j = start; j<stop; j+=step){
     for (int i = 0; i<3 ; i++){

@@ -13,13 +13,12 @@ int cmp (int a, int b){
 
 int main(int argc, char* argv[]){
     
-    int flag = 0;
+    int flag;
     if (argc<=1) flag = 0;
     else{
-        int start = 0, stop = 0, step = 0;
-        ArraySequence<ISort<int>*>* ptr = Parse(argc, argv, start, stop, step);
-        Cmd(ptr, start, stop, step, 1, cmp);
-        //cout << start << " " << stop << " " << step << endl;
+        int start = 0, stop = 0, step = 0, type = 0;
+        ArraySequence<ISort<int>*>* ptr = Parse(argc, argv, start, stop, step, type);
+        Cmd(ptr, start, stop, step, type, cmp);
         for (int i = 0; i<ptr->GetLength(); delete ptr->Get(i), i++);
         delete ptr;
         flag=1;
@@ -83,7 +82,7 @@ int main(int argc, char* argv[]){
                 Sequence<int>* ptr1 = new ArraySequence<int>(randarr, qty);
                 //ptr1->print();
                 Sequence<int>* out = sorter->Sort(ptr1, cmp);
-                out->print();
+                // out->print();
                 
                 
                 delete[] randarr;

@@ -4,13 +4,14 @@
 #include <cstdlib>
 #include <chrono>
 #include "../Headers/Sequence/ArrSeq.hpp"
+#include "../Headers/Sequence/LinkedListSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
 
 
 using namespace std;
 
 
-ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop, int& step){
+ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop, int& step, int& type){
     string sorts_path = "Data/sorts_list";
     string line;
 
@@ -25,10 +26,19 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
         sorts->Append(line);
     }
     fin.close();
+
     start = 0, stop = 0, step = 0;
 
     for (int i = 0; i < argc; i++){
         int flag = 0;
+
+        if (!(strcmp(argv[i], "-arr"))) {
+            type = 0;
+        }
+
+        if ((!strcmp(argv[i], "-list"))) {
+            type = 1;
+        }
 
         if (!strcmp(argv[i], "-q")) {
             flag = 1;
@@ -38,15 +48,12 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
             // cout << argv[i] << endl;
             //Create()
             if (!strcmp(argv[i], "bs")) {
-                // sort1 = new BubbleSort<int>();
                 isorts->Append(new BubbleSort<int>());
             }
             if (!strcmp(argv[i], "qs")) {
-                // sort2 = new QuickSort<int>();
                 isorts->Append(new QuickSort<int>());
             }
             if (!strcmp(argv[i], "shs")) {
-                // sort3 = new ShellSort<int>();
                 isorts->Append(new ShellSort<int>());
             }
         }
@@ -55,7 +62,7 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
             start = atoi(argv[i++]);
             stop = atoi(argv[i++]);
             step = atoi (argv[i]);
-            // flag = 2;
+
         }
             //FILENAME
 
@@ -65,17 +72,26 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
 
 }
 
-// Sequence<T>* RandSequence(int qty){
+Sequence<int>* RandSequence(int qty, int type){
+    int* randarr = new int[qty];
+        for (int i=0; i<qty; i++){
+            randarr[i] = rand()%qty;
+    }
 
-// }
+    Sequence<int>* res;
+    if (type == 0 ) res = new ArraySequence<int>(randarr, qty);
+    if (type == 1) res = new LinkedListSequence<int>(randarr, qty);
+    else res = nullptr;
+
+    return res;
+
+    delete[] randarr;
+}
 
 
 
 // Time
 void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int type, int (*cmp)(int, int)){
-    // Sequence<int>* seq = nullptr;
-    // if (type == 1) seq = new ArraySequence<int>();
-    // else seq = new ListSequence();
 
     clock_t from, to;
     double restime;
@@ -92,23 +108,21 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     out << endl;
 
 
-    for (int j = start; j<stop; j+=step){
+    for (int j = start; j<=stop; j+=step){
         out << j << " ";
         for (int i = 0; i<sorts->GetLength(); i++){
-            ArraySequence<int>* seq = new ArraySequence<int>();
-            for (int k = 0; k<j; k++) seq->Append(rand()%j);
-
-            from = clock();
-            
+            Sequence<int>* seq = RandSequence(j, type);
+            // from = clock();
             Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
+            // // res->print();
+            // to = clock();
 
-            to = clock();
-            restime = ((double)(to - from)) / CLOCKS_PER_SEC;
-
-            out << restime << " ";
-            restime = 0;
-            delete res;
+            // restime = ((double)(to - from)) / CLOCKS_PER_SEC;
+            cout << type << endl;
+            // out << restime << " ";
+            // restime = 0;
             delete seq;
+            delete res;
             // start = 0; end = 0;
         }
         out << endl;
@@ -118,7 +132,6 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     //delete sorts;
 
     system("cd Src && python3 draw.py");
-
 
 }
 
