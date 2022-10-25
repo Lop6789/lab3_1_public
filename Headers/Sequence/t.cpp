@@ -2,6 +2,7 @@
 #include "ArrSeq.hpp"
 #include "../SortHeaders.hpp"
 #include "LinkedList.hpp"
+#include "LinkedListSeq.hpp"
 
 using namespace std;
 
@@ -30,13 +31,16 @@ int main(){
     ptr3->Append(5);
     LinkedList<int>* ptr4 = ptr3->GetSubList(0, 3);
     ptr4->Prepend(13);
-    // cout << ptr4->GetFirst()<<endl;
+    cout<< ptr4->IndexOf(13) << endl;
+    ptr4->InsertAt(1377, 2);
+    ptr4->Set(900, 0);
     // LinkedList<int>* ptr4 = new LinkedList<int>();
     // ptr4->Append(7);
     // ptr->print();
     ptr2->print();
     ptr3->print();
     ptr4->print();
+    cout << ptr4->Get(2)<<endl;
     // cout << ptr2->GetLast() << ptr2->GetFirst() << endl;
     // LinkedList<int>* ptr2 = new LinkedList<int>();
     // ptr = ptr->GetSubsequence(0, 3);

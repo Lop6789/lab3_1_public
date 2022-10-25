@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "Sequence.hpp"
 #include <cassert>
 
 using namespace std;
@@ -22,7 +21,7 @@ class ListNode {
 };
 
 
-//Don't forget to add : public Seq<T>
+
 template <class T>
 class LinkedList {
     private:
@@ -86,10 +85,10 @@ class LinkedList {
 
         T Get (int index){
             ListNode<T>* ptr = head;
-            for (int i = 0; i < length; i++){
+            for (int i = 0; i < index; i++){
                 ptr = ptr->next;
             }
-            return ptr;
+            return ptr->data;
         }
 
         int GetLength(){
@@ -140,20 +139,30 @@ class LinkedList {
         }
 
         void InsertAt(T item, int index){
-            ListNode<T>* ptr;
+            if (index == 0){
+                Prepend(item);
+                return;
+            }
+            if (index == length-1){
+                Append(item);
+                return;
+            }
+            ListNode<T>* ptr = head;
+            ListNode<T>* ptr_prev = nullptr;
 
-            for (int i  = 0; i < index; i++){
+            for (int i = 0; i < index; i++){
+                ptr_prev = ptr;
                 ptr = ptr->next;
             }
 
-            ListNode<T>* ptr_next = ptr->next;
-            ptr->next = new ListNode<T>(item);
-            ptr->next->next = ptr_next;
+            ListNode<T>* ptr_new = new ListNode<T>(item);
+            ptr_prev->next = ptr_new;
+            ptr_new->next = ptr;
         }
 
         void Set (T item, int index){
             ListNode<T>* ptr = head;
-            for (int i = 0; i < length; i++){
+            for (int i = 0; i < index; i++){
                 ptr = ptr->next;
             }
             ptr->data = item;
@@ -165,7 +174,7 @@ class LinkedList {
                 if (ptr->data == item) return i;
                 ptr = ptr->next;
             }
-                
+
             return -1;
         }
         
