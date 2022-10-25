@@ -91,7 +91,7 @@ class ArraySequence : public Sequence <T>{
 		    arr->print();
         }
 
-        Sequence<T>* GetSubsequence(int startIndex, int endIndex) {
+        Sequence<T>* GetSubsequence(int startIndex, int endIndex) override{
             ArraySequence<T>* buff = new ArraySequence<T>();
             int diff = endIndex - startIndex;
             buff->Resize(diff);

@@ -41,7 +41,7 @@ class LinkedListSequence : public Sequence<T> {
             return list->GetLast();
         }
 
-        Sequence<T>* GetSubSequence(int startIndex, int endIndex) override{
+        Sequence<T>* GetSubsequence(int startIndex, int endIndex) override{
             return (Sequence<T>*) new LinkedListSequence<T>(*(list->GetSubList(startIndex, endIndex)));
         }
 
@@ -77,6 +77,10 @@ class LinkedListSequence : public Sequence<T> {
 
         Sequence<T>* Copy() override{
             return (Sequence<T>*) new LinkedListSequence<T>(*this);
+        }
+
+        void print() override{
+            return list->print();
         }
 
         
