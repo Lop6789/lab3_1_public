@@ -24,13 +24,16 @@ int main(){
     // Sequence<int>* ptr1 = new ArraySequence(*ptr);
     // Sequence<int>* ptr1 = ptr->GetSubsequence(0, 5);
 
-    LinkedListSequence<int>* ptr3 = new LinkedListSequence<int>(randarr, qty);
+    LinkedList<int>* ptr3 = new LinkedList<int>(randarr, qty);
     // ptr2->print();
     // LinkedList<int>* ptr3 = new LinkedList<int>(*ptr2);
     ptr3->Append(0);
     ptr3->Append(5);
     // LinkedList<int>* ptr4 = ptr3->GetSubList(0, 3);
-    Sequence<int>* ptr4 = ptr3->GetSubsequence(0, 3);
+    LinkedList<int>* ptr4 = new LinkedList<int>(*ptr3);
+    LinkedListSequence<int>* ptr5 = new LinkedListSequence<int>(*ptr4);
+    Sequence<int>* ptrseq = new LinkedListSequence<int>(*ptr4);
+    // Sequence<int>* ptr4 = ptr3->GetSubsequence(0, 3);
     // Sequence<int>* ptr4 = ptr3->Copy();
     // ptr4->Prepend(13);
     // cout<< ptr4->IndexOf(13) << endl;
@@ -62,4 +65,6 @@ int main(){
     // delete ptr1;
     delete ptr3;
     delete ptr4;
+    delete ptr5;
+    delete ptrseq;
 }

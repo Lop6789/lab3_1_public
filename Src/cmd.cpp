@@ -7,9 +7,7 @@
 #include "../Headers/Sequence/LinkedListSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
 
-
 using namespace std;
-
 
 ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop, int& step, int& type){
     string sorts_path = "Data/sorts_list";
@@ -82,10 +80,10 @@ Sequence<int>* RandSequence(int qty, int type){
     if (type == 0 ) res = new ArraySequence<int>(randarr, qty);
     if (type == 1) res = new LinkedListSequence<int>(randarr, qty);
     else res = nullptr;
-
+    
+    delete[] randarr;
     return res;
 
-    delete[] randarr;
 }
 
 
@@ -112,17 +110,18 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
         out << j << " ";
         for (int i = 0; i<sorts->GetLength(); i++){
             Sequence<int>* seq = RandSequence(j, type);
-            // from = clock();
-            Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
-            // // res->print();
-            // to = clock();
+            // Sequence<int>* seq = new LinkedListSequence<int>();
+            from = clock();
+            // Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
+            // res->print();
+            to = clock();
 
-            // restime = ((double)(to - from)) / CLOCKS_PER_SEC;
-            cout << type << endl;
-            // out << restime << " ";
+            restime = ((double)(to - from)) / CLOCKS_PER_SEC;
+            // cout << type << endl;
+            out << restime << " ";
             // restime = 0;
             delete seq;
-            delete res;
+            // delete res;
             // start = 0; end = 0;
         }
         out << endl;

@@ -17,8 +17,8 @@ class LinkedListSequence : public Sequence<T> {
             list = new LinkedList<T>(items, size);
         }
 
-        LinkedListSequence(LinkedListSequence<T>& list){
-            this->list = new LinkedList<T>(*(list.list));
+        LinkedListSequence(LinkedListSequence<T>& listseq){
+            this->list = new LinkedList<T>(*(listseq.list));
         }
 
         LinkedListSequence(LinkedList<T>& list){
@@ -42,7 +42,7 @@ class LinkedListSequence : public Sequence<T> {
         }
 
         Sequence<T>* GetSubsequence(int startIndex, int endIndex) override{
-            return (Sequence<T>*) new LinkedListSequence<T>(*(list->GetSubList(startIndex, endIndex)));
+            return (Sequence<T>*) (new LinkedListSequence<T>(*(list->GetSubList(startIndex, endIndex))));
         }
 
         int GetLength() override{
@@ -76,7 +76,7 @@ class LinkedListSequence : public Sequence<T> {
         }
 
         Sequence<T>* Copy() override{
-            return (Sequence<T>*) new LinkedListSequence<T>(*this);
+            return (Sequence<T>*) (new LinkedListSequence<T>(*this));
         }
 
         void print() override{

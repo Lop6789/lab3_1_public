@@ -25,14 +25,15 @@ class ArraySequence : public Sequence <T>{
             arr = new DynamicArray<T>(items, size);
         }
 
+        ArraySequence(ArraySequence<T>& arrseq){
+            this->arr = new DynamicArray<T>(*(arrseq.arr));
+        }
+
         ArraySequence(DynamicArray<T>& arr){
             this->arr = new DynamicArray<T>(arr);
         }
 
         //copy
-        ArraySequence(ArraySequence<T>& arrseq){
-            arr = new DynamicArray<T>(*(arrseq.arr));
-        }
 
         ~ArraySequence(){
             delete arr;
@@ -103,7 +104,7 @@ class ArraySequence : public Sequence <T>{
 
         Sequence<T>* Copy() override{
             return (Sequence<T>*)(new ArraySequence<T>(*this));
-            }
+        }
 
         int IndexOf(T item){
             return arr->IndexOf(item);
