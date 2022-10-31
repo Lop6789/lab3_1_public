@@ -43,8 +43,7 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
             i++;
         }
         if ((sorts->IndexOf(argv[i]))!=-1){
-            // cout << argv[i] << endl;
-            //Create()
+
             if (!strcmp(argv[i], "bs")) {
                 isorts->Append(new BubbleSort<int>());
             }
@@ -62,8 +61,6 @@ ArraySequence<ISort<int>*>* Parse(int& argc, char* argv[], int& start, int& stop
             step = atoi (argv[i]);
 
         }
-            //FILENAME
-
     }
     delete sorts;
     return isorts;
@@ -76,8 +73,6 @@ Sequence<int>* RandSequence(int qty, int type){
             randarr[i] = rand()%qty;
     }
 
-    // cout << "qty: " <<qty << endl;
-    // cout << "type: " << type << endl;
     Sequence<int>* res;
     if (type == 0 ) {
         res = new ArraySequence<int>(randarr, qty);
@@ -88,7 +83,7 @@ Sequence<int>* RandSequence(int qty, int type){
     else{
         res = nullptr;
     }
-    // res = new LinkedListSequence<int>(randarr, qty);
+
     delete[] randarr;
     
     return res;
@@ -119,30 +114,19 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
         out << j << " ";
         Sequence<int>* seq = RandSequence(j, type);
         for (int i = 0; i<sorts->GetLength(); i++){
+
             from = clock();
             Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
             to = clock();
 
             restime = ((double)(to - from)) / CLOCKS_PER_SEC;
             out << restime << " ";
-
-            // delete seq;
             delete res;
         }
         delete seq;
         out << endl;
     }
     out.close();
-    //for (int i = 0; i<sorts->GetLength(); delete sorts->Get(i), i++);
-    //delete sorts;
-
     system("cd Src && python3 draw.py");
 
 }
-
-
-            // auto from = std::chrono::high_resolution_clock::now();
-            // auto to = std::chrono::high_resolution_clock::now();
-            // double time = std::chrono::duration_cast<std::chrono::microseconds>(to - from).count();
-
-
