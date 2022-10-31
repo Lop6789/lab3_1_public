@@ -80,15 +80,12 @@ Sequence<int>* RandSequence(int qty, int type){
     // cout << "type: " << type << endl;
     Sequence<int>* res;
     if (type == 0 ) {
-        cout << "0 TYPE " << endl;
-        res = new ArraySequence<int>();
+        res = new ArraySequence<int>(randarr, qty);
     }
     else if (type == 1) {
-        cout << "1 TYPE " << endl;
-        res = new LinkedListSequence<int>();
+        res = new LinkedListSequence<int>(randarr, qty);
     }
     else{
-        cout << "ELSE TYPE " << endl;
         res = nullptr;
     }
     // res = new LinkedListSequence<int>(randarr, qty);
@@ -121,21 +118,17 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     for (int j = start; j<=stop; j+=step){
         out << j << " ";
         for (int i = 0; i<sorts->GetLength(); i++){
-            cout << "j: " << j << endl; 
+    
             Sequence<int>* seq = RandSequence(j, type);
-            // Sequence<int>* seq = new LinkedListSequence<int>();
             from = clock();
-            // Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
-            // res->print();
+            Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
             to = clock();
 
             restime = ((double)(to - from)) / CLOCKS_PER_SEC;
-            // cout << type << endl;
             out << restime << " ";
-            // restime = 0;
+
             delete seq;
-            // delete res;
-            // start = 0; end = 0;
+            delete res;
         }
         out << endl;
     }
@@ -143,7 +136,7 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
     //for (int i = 0; i<sorts->GetLength(); delete sorts->Get(i), i++);
     //delete sorts;
 
-    // system("cd Src && python3 draw.py");
+    system("cd Src && python3 draw.py");
 
 }
 
