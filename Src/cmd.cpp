@@ -117,9 +117,8 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
 
     for (int j = start; j<=stop; j+=step){
         out << j << " ";
+        Sequence<int>* seq = RandSequence(j, type);
         for (int i = 0; i<sorts->GetLength(); i++){
-    
-            Sequence<int>* seq = RandSequence(j, type);
             from = clock();
             Sequence<int>* res = sorts->Get(i)->Sort(seq, cmp);
             to = clock();
@@ -127,9 +126,10 @@ void Cmd (ArraySequence<ISort<int>*>* sorts, int start, int stop, int step, int 
             restime = ((double)(to - from)) / CLOCKS_PER_SEC;
             out << restime << " ";
 
-            delete seq;
+            // delete seq;
             delete res;
         }
+        delete seq;
         out << endl;
     }
     out.close();
