@@ -38,7 +38,7 @@ int main(int argc, char* argv[]){
     int arr[] = {1, 9, 8, 3, 4, 1, 40, 4};
     
     Sequence<int>* ptr = new ArraySequence<int>(arr, 8);
-    ISort<int>* sorter = new BubbleSort<int>(); 
+    ISort<int>* sorter = new ShellSort<int>(); 
 
     // Sequence<int>* ptr = new ArraySequence<int>(3);
     //ArraySequence<int>* ptr1 = (ArraySequence<int>*)ptr;
@@ -48,28 +48,27 @@ int main(int argc, char* argv[]){
     //ptr->Append(1331);
     int res = 0;
     while (!flag){
-        cout << "Choose: ";
+        cout << "\nChoose action:\n1)Sort {1, 9, 8, 3, 4, 1, 40, 4}\n2)AutoTest\n3)Sort random array\n4)Sort random array, measure time\n0)Exit\n";
         cin >> res;
         switch (res){
             case 1:{
-                int test1 = ptr->GetFirst();
-                int test2 = ptr->GetLength();
-                cout <<"First: "<<test1 << endl  << "Second: "  << test2 << endl;
+                // int test1 = ptr->GetFirst();
+                // int test2 = ptr->GetLength();
+                // cout <<"First: "<<test1 << endl  << "Second: "  << test2 << endl;
                 ptr->print();
                 cout << "After Sort: " << endl;
                 Sequence<int>* output = sorter->Sort(ptr, &cmp);
                 output->print();
-                cout << "Operator" << endl;
+                cout << endl;
                 delete output;
 
                 break;
             }   
             case 2:{
-                AutoTest(&cmp);
-                /*
-                ptr->print();
-                ptr = ptr->GetSubsequence(0,ptr->GetLength());
-                ptr->print();*/
+                cout << "\nEnter type: \n1) Array\n2) LinkedList" << endl;
+                int type = 0;
+                cin >> type;
+                AutoTest(&cmp, type);
                 break;
             }
             
@@ -82,9 +81,9 @@ int main(int argc, char* argv[]){
                     randarr[i] = rand()%1000000;
                 }
                 Sequence<int>* ptr1 = new ArraySequence<int>(randarr, qty);
-                //ptr1->print();
+                ptr1->print();
                 Sequence<int>* out = sorter->Sort(ptr1, cmp);
-                // out->print();
+                out->print();
                 
                 
                 delete[] randarr;
@@ -94,7 +93,7 @@ int main(int argc, char* argv[]){
             }
 
             case 4: {
-                cout << "Enter qty to generate rangom array and sort" << endl;
+                cout << "\nEnter qty to generate rangom array and sort" << endl;
                 int qty = 0;
                 cin >> qty;
                 int* randarr = new int[qty];
