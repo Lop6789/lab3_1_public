@@ -22,6 +22,7 @@ class ShellSort : public ISort<T> {
 
     public:
         Sequence<T>* Sort(Sequence<T>* origseq, int (*cmp)(T,T)) override {
+                if (!origseq) return nullptr;
                 Sequence<T>* seq = origseq->Copy(   );
                 Ss(seq, cmp);
                 return seq;

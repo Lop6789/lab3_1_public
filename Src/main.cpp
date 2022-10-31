@@ -4,6 +4,7 @@
 #include "../Headers/cmd.hpp"
 #include "../Headers/Sequence/ArrSeq.hpp"
 #include "../Headers/SortHeaders.hpp"
+#include "../Headers/tests.hpp"
 
 using namespace std;
 
@@ -64,6 +65,7 @@ int main(int argc, char* argv[]){
                 break;
             }   
             case 2:{
+                AutoTest(&cmp);
                 /*
                 ptr->print();
                 ptr = ptr->GetSubsequence(0,ptr->GetLength());

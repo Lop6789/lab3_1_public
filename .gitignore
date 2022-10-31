@@ -1,5 +1,6 @@
 *.swp
 *.csv
+*.o
 /.vscode
 lab1
 a.out
