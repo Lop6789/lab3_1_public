@@ -19,7 +19,7 @@ int AutoTest(int(*cmp)(int, int), int type){
     ISort<int>* shs = new ShellSort<int>();
 
     Sequence<int>* sortedseq1 = bs->Sort(origseq, cmp);
-    Sequence<int>* sortedseq2 = shs->Sort(origseq, cmp);
+    Sequence<int>* sortedseq2 = qs->Sort(origseq, cmp);
     Sequence<int>* sortedseq3 = shs->Sort(origseq, cmp);
 
     cout << "Randomly created Sequence: " << endl;
