@@ -33,6 +33,7 @@ int main(){
     LinkedList<int>* ptr4 = new LinkedList<int>(*ptr3);
     LinkedListSequence<int>* ptr5 = new LinkedListSequence<int>(*ptr4);
     Sequence<int>* ptrseq = new LinkedListSequence<int>(*ptr4);
+    Sequence<int>* seq = new LinkedListSequence<int>(randarr, qty);
     // Sequence<int>* ptr4 = ptr3->GetSubsequence(0, 3);
     // Sequence<int>* ptr4 = ptr3->Copy();
     // ptr4->Prepend(13);
@@ -67,4 +68,5 @@ int main(){
     delete ptr4;
     delete ptr5;
     delete ptrseq;
+    delete seq;
 }
