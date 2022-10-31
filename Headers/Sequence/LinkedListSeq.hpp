@@ -65,14 +65,14 @@ class LinkedListSequence : public Sequence<T> {
             list->InsertAt(item, index);
         }
 
-        void Set(T item, int index) override{
-            list->Set(item, index);
+        void Set(int index, T item) override{
+            list->Set(index, item);
         }
 
         void Swap(int i, int j) override{
             T tmp = list->Get(i);
-            list->Set(Get(j), i);
-            list->Set(tmp, j);
+            list->Set(i, Get(j));
+            list->Set(j, tmp);
         }
 
         Sequence<T>* Copy() override{

@@ -160,7 +160,7 @@ class LinkedList {
             ptr_new->next = ptr;
         }
 
-        void Set (T item, int index){
+        void Set (int index, T item){
             ListNode<T>* ptr = head;
             for (int i = 0; i < index; i++){
                 ptr = ptr->next;
